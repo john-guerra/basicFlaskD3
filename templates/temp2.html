@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Hello from Flask</title>
+
+	<h1>Example</h1>
+<div id="chart"></div>
+
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+
+	<script>
+	var curDate = new Date();
+	d3.json("http://localhost:5000/data?date="+ curDate, function (err, data) {
+		if (err) throw err;
+
+		console.log("Got data")
+		d3.select("#chart").text(data);
+		console.log(data);
+
+	});
+	</script>
+
